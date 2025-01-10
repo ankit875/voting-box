@@ -13,14 +13,14 @@
     "compile": "cd src/contracts && ${AZTEC_NARGO:-aztec-nargo} compile --silence-warnings",
     "codegen": "${AZTEC_BUILDER:-aztec-builder} codegen src/contracts/target -o artifacts",
     "clean": "rm -rf ./dist .tsbuildinfo ./artifacts ./src/contracts/target",
-    "prep": "bun clean && bun compile && bun codegen",
-    "dev": "bun prep && webpack serve --mode development",
-    "build": "bun prep && webpack",
+    "prep": "yarn clean && yarn compile && yarn codegen",
+    "dev": "yarn prep && webpack serve --mode development",
+    "build": "yarn prep && webpack",
     "serve": "webpack serve --no-open --mode development",
     "formatting": "prettier --check ./src && eslint ./src",
     "formatting:fix": "prettier -w ./src",
-    "test": "bun test:node && bun test:browser",
-    "test:node": "NODE_NO_WARNINGS=1 node --experimental-vm-modules $(bun bin jest) --runInBand",
+    "test": "yarn test:node && yarn test:browser",
+    "test:node": "NODE_NO_WARNINGS=1 node --experimental-vm-modules $(yarn bin jest) --runInBand",
     "test:browser": "npx playwright test"
   },
   "jest": {
@@ -40,9 +40,9 @@
     "rootDir": "./"
   },
   "dependencies": {
-    "@aztec/accounts": "^0.67.0",
-    "@aztec/aztec.js": "^0.67.0",
-    "@aztec/builder": "^0.67.0",
+    "@aztec/accounts": "^0.68.2",
+    "@aztec/aztec.js": "^0.68.2",
+    "@aztec/builder": "^0.68.2",
     "classnames": "^2.3.2",
     "formik": "^2.4.3",
     "react": "^18.2.0",
